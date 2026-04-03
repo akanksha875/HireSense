@@ -1,0 +1,13 @@
+streamlit
+opencv-python
+mediapipe
+numpy
+pandas
+plotly
+scikit-learn
+sentence-transformers
+openai-whisper
+sounddevice
+soundfile
+librosa
+matplotlib
