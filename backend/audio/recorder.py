@@ -31,7 +31,7 @@ def record_video_only(duration=10, fps=20.0):
     Records only video and saves it as MP4.
     Press Q to stop early.
     """
-    video_path = "backend/data/interview_video.mp4"
+    video_path = "backend/data/interview_video.avi"
 
     cap = cv2.VideoCapture(0)
     if not cap.isOpened():
@@ -40,8 +40,8 @@ def record_video_only(duration=10, fps=20.0):
     frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
-    # MP4 codec
-    fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+    # AVI codec
+    fourcc = cv2.VideoWriter_fourcc(*'XVID')
     out = cv2.VideoWriter(video_path, fourcc, fps, (frame_width, frame_height))
 
     print(f"[VIDEO] Recording for {duration} seconds...")
@@ -216,3 +216,4 @@ def record_audio(duration=10, sample_rate=44100):
 
 def record_video(duration=10, fps=20.0):
     return record_video_only(duration=duration, fps=fps)
+

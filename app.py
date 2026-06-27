@@ -1,3 +1,5 @@
+from time import time
+
 import streamlit as st
 import os
 
@@ -73,7 +75,9 @@ if st.button("Start Interview Recording"):
             # Show video preview
             if os.path.exists(video_path):
                 with open(video_path, "rb") as video_file:
-                    st.video(video_file.read())
+                    st.write("Video exists:", os.path.exists(video_path))
+                    st.write("Video size:", os.path.getsize(video_path))
+                    st.video(video_path)
 
             st.write("**Saved Files:**")
             st.write(f"- Audio: {audio_path}")
@@ -292,5 +296,3 @@ if st.button("Generate Final Interview Score"):
             st.info("No interview question was provided, so NLP score fallback value (50) was used.")
 
 st.markdown("---")
-
-st.success("🚀 Unified Multimodal Interview Recording + Analysis is now active!")
